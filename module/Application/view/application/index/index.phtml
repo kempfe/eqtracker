@@ -3,6 +3,7 @@
         <tr>
             <th>Name</th>
             <th>Zone</th>
+            <th>Kill Time</th>
             <th>Spawn Type</th>
             <th>Spawn Time</th>
             <th>Operation</th>
@@ -14,6 +15,7 @@
         <tr>
             <td><?=$npc->getNPC()->getName()?></td>
             <td><?=$npc->getNPC()->getZone()->getName()?></td>
+            <td><?=$npc->getCrDate()->format("Y/m/d H:i:s")?></td>
             <td><?=$npc->getNPC()->getSpawnType()?></td>
             <td>
                 <?if($npc->getSpawnTime() > (new \DateTime)):?>
