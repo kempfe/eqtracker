@@ -2,7 +2,7 @@
 
 namespace Application\Form;
 
-class ZoneForm extends \Zend\Form\Form {
+class NPCForm extends \Zend\Form\Form {
     
     
     public function __construct($name = null, $options = array()) {
@@ -50,7 +50,7 @@ class ZoneForm extends \Zend\Form\Form {
             ],
             "options" => [
                 "label" => "Spawn Type",
-                "option_values" => [
+                "value_options" => [
                     'WINDOW' => "Windowed Spawn Type",
                     'FIX' => "Fixed Spawn Type",
                 ]

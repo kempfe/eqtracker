@@ -20,6 +20,16 @@ return array(
                     ),
                 ),
             ),
+            'parser' => [
+                'type' => 'literal',
+                'options' => [
+                    'route' => '/parser',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\Parser',
+                        'action' => 'index'
+                    ]
+                ]
+            ],
             'addkill' => [
                 'type' => 'literal',
                 'options' => [
@@ -72,6 +82,46 @@ return array(
                         ]
                     ]
                 ]
+            ],
+            'npc' => [
+                'type' => 'literal',
+                'options' => [
+                    'route' => '/npc',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\NPC',
+                        'action' => 'list'
+                    ]
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'add' => [
+                        'type' => 'literal',
+                        'options' => [
+                            'route' => '/add',
+                            'defaults' => [
+                                'action' => 'add'
+                            ]
+                        ]
+                    ],
+                    'edit' => [
+                        'type' => 'segment',
+                        'options' => [
+                            'route' => '/edit/:npc',
+                            'defaults' => [
+                                'action' => 'edit'
+                            ]
+                        ]
+                    ],
+                    'delete' => [
+                        'type' => 'segment',
+                        'options' => [
+                            'route' => '/delete/:npc',
+                            'defaults' => [
+                                'action' => 'delete'
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ),
     ),
@@ -81,7 +131,9 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Zone' => 'Application\Controller\ZoneController'
+            'Application\Controller\Zone' => 'Application\Controller\ZoneController',
+            'Application\Controller\NPC' => 'Application\Controller\NPCController',
+            'Application\Controller\Parser' => 'Application\Controller\ParserController'
         ),
     ),
     'view_manager' => array(
