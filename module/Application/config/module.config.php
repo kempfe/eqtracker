@@ -40,6 +40,16 @@ return array(
                     ]
                 ]
             ],
+            'removekill' => [
+                'type' => 'segment',
+                'options' => [
+                    'route' => '/removekill/:npc',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\Index',
+                        'action' => 'removeKill'
+                    ]
+                ]
+            ],
             'zone' => [
                 'type' => 'literal',
                 'options' => [

@@ -58,5 +58,13 @@ class IndexController extends AbstractActionController
         return $this->redirect()->toRoute("home");
     }
     
-    
+    public function removeKillAction(){
+        $npc = $this->params()->fromRoute("npc");
+        $zoneMapper = $this->getServiceLocator()->get("DB\Mapper\NPC");
+        $npcEntity = $zoneMapper->getEntityRepository()->find($npc);
+        
+        $npcEntity->setKill(NULL);
+        $zoneMapper->update($npcEntity);
+        return $this->redirect()->toRoute("home"); 
+    }
 }
