@@ -29,6 +29,49 @@ return array(
                         'action' => 'addKill'
                     ]
                 ]
+            ],
+            'zone' => [
+                'type' => 'literal',
+                'options' => [
+                    'route' => '/zone',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\Zone',
+                        'action' => 'list'
+                    ]
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'add' => [
+                        'type' => 'literal',
+                        'options' => [
+                            'route' => '/add',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Zone',
+                                'action' => 'add'
+                            ]
+                        ]
+                    ],
+                    'edit' => [
+                        'type' => 'segment',
+                        'options' => [
+                            'route' => '/edit/:zoneid',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Zone',
+                                'action' => 'edit'
+                            ]
+                        ]
+                    ],
+                    'delete' => [
+                        'type' => 'segment',
+                        'options' => [
+                            'route' => '/delete/:zoneid',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Zone',
+                                'action' => 'delete'
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ),
     ),
@@ -37,7 +80,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Zone' => 'Application\Controller\ZoneController'
         ),
     ),
     'view_manager' => array(

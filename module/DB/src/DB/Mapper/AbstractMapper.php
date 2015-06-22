@@ -72,4 +72,9 @@ class AbstractMapper implements ServiceLocatorAwareInterface{
         return $entity;
     }
     
+    public function remove($entity){
+        $this->getEntityManager()->remove($entity);
+        $this->getEntityManager()->flush();
+    }
+    
 }

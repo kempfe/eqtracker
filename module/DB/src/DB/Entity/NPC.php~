@@ -138,10 +138,6 @@ class NPC
     {
         return $this->id;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $kills;
 
     /**
      * Constructor
@@ -152,36 +148,69 @@ class NPC
     }
 
     /**
-     * Add kill
+     * @var \DB\Entity\Zone
+     */
+    private $zone;
+
+
+    /**
+     * Set zone
      *
-     * @param \DB\Entity\Kill $kill
+     * @param \DB\Entity\Zone $zone
      *
      * @return NPC
      */
-    public function addKill(\DB\Entity\Kill $kill)
+    public function setZone(\DB\Entity\Zone $zone = null)
     {
-        $this->kills[] = $kill;
+        $this->zone = $zone;
 
         return $this;
     }
 
     /**
-     * Remove kill
+     * Get zone
+     *
+     * @return \DB\Entity\Zone
+     */
+    public function getZone()
+    {
+        return $this->zone;
+    }
+    
+    
+    public function getLastKill(){
+        $kills = $this->getKills();
+        return $kills->current();
+    }
+
+
+    /**
+     * @var \DB\Entity\Kill
+     */
+    private $kill;
+
+
+    /**
+     * Set kill
      *
      * @param \DB\Entity\Kill $kill
+     *
+     * @return NPC
      */
-    public function removeKill(\DB\Entity\Kill $kill)
+    public function setKill(\DB\Entity\Kill $kill = null)
     {
-        $this->kills->removeElement($kill);
+        $this->kill = $kill;
+
+        return $this;
     }
 
     /**
-     * Get kills
+     * Get kill
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \DB\Entity\Kill
      */
-    public function getKills()
+    public function getKill()
     {
-        return $this->kills;
+        return $this->kill;
     }
 }

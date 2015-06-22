@@ -52,4 +52,3 @@ class Zone
         return $this->id;
     }
 }
-

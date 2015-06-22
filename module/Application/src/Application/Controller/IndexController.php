@@ -43,20 +43,20 @@ class IndexController extends AbstractActionController
         if(!$form->isValid()){
             return array('form' => $form); 
         }
-        
+        $mapper = $this->getServiceLocator()->get('DB\Mapper\Kill');
         $kill = $form->getData();
         $npc = $kill->getNPC();
+        $mapper->cleanNPC($npc);
+        $npc->setKill($kill);
         $spawnTime = clone $kill->getCrDate();
         $spawnTime->add(new \DateInterval("PT".$npc->getSpawnInterval()."M"));
         $kill->setSpawnTime($spawnTime);
         $kill->setSpawnInterval($npc->getSpawnWindow());
         
-        $mapper = $this->getServiceLocator()->get('DB\Mapper\Kill');
-        
-        
         $mapper->insert($kill);
         
         return $this->redirect()->toRoute("home");
     }
+    
     
 }

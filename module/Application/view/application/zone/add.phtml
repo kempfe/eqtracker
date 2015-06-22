@@ -1,0 +1,18 @@
+<form method="post" action="<?=$this->url(null,[],true)?>">
+<div class="panel panel-default">
+    <div class="panel-heading">Add New Zone</div>
+    <div class="panel-body">
+        
+        <?foreach($form->getElements() as $element):?>
+        <div class="form-group">
+            <label class="control-label"><?=$element->getLabel()?></label>
+            <?=$this->formElement($element)?>
+            <?=$this->formElementErrors($element)?>
+        </div>
+        <? endforeach; ?>
+    </div>
+    <div class="panel-footer">
+        <button type="submit" class="btn btn-default">Add Zone</button>
+    </div>
+</div>
+</form>

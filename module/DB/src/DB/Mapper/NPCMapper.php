@@ -15,4 +15,5 @@ class NPCMapper extends \DB\Mapper\AbstractMapper{
     }
     
     
+    
 }

@@ -11,11 +11,14 @@
          <field name="spawnType" type="string" />
          <field name="spawnInterval" type="integer" />
          <field name="spawnWindow" type="integer" />
-         <one-to-many target-entity="DB\Entity\Kill" mapped-by="npc" field="kills">
+         <one-to-one target-entity="DB\Entity\Kill" mapped-by="npc" field="kill" orphan-removal="true">
+             <cascade>
+                 <cascade-all />
+             </cascade>
              <order-by>
                  <order-by-field name="spawnTime" direction="DESC" />
              </order-by>
-         </one-to-many>
+         </one-to-one>
          <many-to-one target-entity="DB\Entity\Zone" field="zone">
              
          </many-to-one>

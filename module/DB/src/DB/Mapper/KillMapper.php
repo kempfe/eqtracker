@@ -14,5 +14,11 @@ class KillMapper extends \DB\Mapper\AbstractMapper{
         return $sql->getQuery()->getResult();
     }
     
-    
+    public function cleanNPC(\DB\Entity\NPC $npc){
+        $sql = $this->getEntityRepository()->createQueryBuilder("k");
+        $sql->delete();
+        $sql->andWhere("k.npc = :npc");
+        $sql->setParameter("npc", $npc);
+        $sql->getQuery()->execute();
+    }
 }
