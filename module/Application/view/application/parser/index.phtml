@@ -11,9 +11,11 @@
               60%
             </div>
       </div>
+        <ul class="notifications list-group text-danger">
+        </ul>
     </div>
 
-
+    
     <div class="panel-footer">
         <button type="submit" class="btn btn-default">Upload</button>
     </div>
@@ -42,7 +44,13 @@
             bar.html(percentVal);
         },
         complete: function(xhr) {
-                document.location.href = "/";
+            $('.notifications').html("");
+            var json = JSON.parse(xhr.responseText);
+            for(x in json){
+                var item = $("<li class='list-group-item' />").html(json[x]);
+                $('.notifications').append(item);
+            }
+                
         }
     }); 
 });

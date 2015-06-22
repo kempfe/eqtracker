@@ -21,9 +21,14 @@ class ParserController extends AbstractActionController
             if ($handle) {
                 while (($buffer = fgets($handle, 4096)) !== false) {
                    preg_match("/\[(.*)\] <SYSTEMWIDE_MESSAGE>: (.*) has/",$buffer,$matches);
-                   if($matches){
+                   preg_match("/\[(.*)\].*<<KILL-LOG>> (.*)/",$buffer,$matches2);
+                   if($matches || $matches2){
+                       if($matches2){
+                           $matches = $matches2;
+                       }
                        $date = date_create_from_format("D M d H:i:s Y", $matches[1]);
-                       $npcName = $matches[2];
+                       $npcName = rtrim($matches[2],"'\r");
+                       
                        $npcMapper = $this->getServiceLocator()->get("DB\Mapper\NPC");
                        $killMapper = $this->getServiceLocator()->get("DB\Mapper\Kill");
                        $npc = $npcMapper->findByName($npcName);
@@ -41,6 +46,8 @@ class ParserController extends AbstractActionController
                            $kill->setSpawnInterval($npc->getSpawnWindow());
                            $npc->setKill($kill);
                           $npcMapper->update($kill);
+                       }else{
+                           $return[] = sprintf("( %s ) - Kill registered but NPC could not be found ",$npcName);
                        }
                    }
                 }
@@ -49,6 +56,7 @@ class ParserController extends AbstractActionController
                 }
                 fclose($handle);
             }
+            echo json_encode($return);
             exit();
         }
     }
