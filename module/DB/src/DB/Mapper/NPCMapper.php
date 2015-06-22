@@ -14,6 +14,8 @@ class NPCMapper extends \DB\Mapper\AbstractMapper{
         return $sql->getQuery()->getResult();
     }
     
-    
+    public function findByName($name){
+        return $this->getEntityRepository()->findOneBy(['name' => $name]);
+    }
     
 }
