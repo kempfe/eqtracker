@@ -1,0 +1,111 @@
+<?php
+
+namespace DB\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Host
+ */
+class Host
+{
+    /**
+     * @var string
+     */
+    private $host;
+
+    /**
+     * @var integer
+     */
+    private $createdAt;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var \DB\Entity\Site
+     */
+    private $site;
+
+
+    /**
+     * Set host
+     *
+     * @param string $host
+     * @return Host
+     */
+    public function setHost($host)
+    {
+        $this->host = $host;
+
+        return $this;
+    }
+
+    /**
+     * Get host
+     *
+     * @return string 
+     */
+    public function getHost()
+    {
+        return $this->host;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param integer $createdAt
+     * @return Host
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return integer 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set site
+     *
+     * @param \DB\Entity\Site $site
+     * @return Host
+     */
+    public function setSite(\DB\Entity\Site $site = null)
+    {
+        $this->site = $site;
+
+        return $this;
+    }
+
+    /**
+     * Get site
+     *
+     * @return \DB\Entity\Site 
+     */
+    public function getSite()
+    {
+        return $this->site;
+    }
+}

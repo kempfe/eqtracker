@@ -1,0 +1,452 @@
+<?php
+
+namespace DB\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Site
+ */
+class Site
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @var string
+     */
+    private $domain;
+
+
+    /**
+     * Set domain
+     *
+     * @param string $domain
+     * @return Site
+     */
+    public function setDomain($domain)
+    {
+        $this->domain = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Get domain
+     *
+     * @return string 
+     */
+    public function getDomain()
+    {
+        return $this->domain;
+    }
+    /**
+     * @var timestamp
+     */
+    private $createdAt;
+
+
+    /**
+     * Set createdAt
+     *
+     * @param \timestamp $createdAt
+     * @return Site
+     */
+    public function setCreatedAt(\timestamp $createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \timestamp 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+    /**
+     * @var integer
+     */
+    private $active;
+
+
+    /**
+     * Set active
+     *
+     * @param integer $active
+     * @return Site
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return integer 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $users;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add users
+     *
+     * @param \DB\Entity\User $users
+     * @return Site
+     */
+    public function addUser(\DB\Entity\User $users)
+    {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \DB\Entity\User $users
+     */
+    public function removeUser(\DB\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $contents;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $pages;
+
+
+    /**
+     * Add contents
+     *
+     * @param \DB\Entity\User $contents
+     * @return Site
+     */
+    public function addContent(\DB\Entity\User $contents)
+    {
+        $this->contents[] = $contents;
+
+        return $this;
+    }
+
+    /**
+     * Remove contents
+     *
+     * @param \DB\Entity\User $contents
+     */
+    public function removeContent(\DB\Entity\User $contents)
+    {
+        $this->contents->removeElement($contents);
+    }
+
+    /**
+     * Get contents
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getContents()
+    {
+        return $this->contents;
+    }
+
+    /**
+     * Add pages
+     *
+     * @param \DB\Entity\User $pages
+     * @return Site
+     */
+    public function addPage(\DB\Entity\User $pages)
+    {
+        $this->pages[] = $pages;
+
+        return $this;
+    }
+
+    /**
+     * Remove pages
+     *
+     * @param \DB\Entity\User $pages
+     */
+    public function removePage(\DB\Entity\User $pages)
+    {
+        $this->pages->removeElement($pages);
+    }
+
+    /**
+     * Get pages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPages()
+    {
+        return $this->pages;
+    }
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $hosts;
+
+
+    /**
+     * Add hosts
+     *
+     * @param \DB\Entity\Host $hosts
+     * @return Site
+     */
+    public function addHost(\DB\Entity\Host $hosts)
+    {
+        $this->hosts[] = $hosts;
+
+        return $this;
+    }
+
+    /**
+     * Remove hosts
+     *
+     * @param \DB\Entity\Host $hosts
+     */
+    public function removeHost(\DB\Entity\Host $hosts)
+    {
+        $this->hosts->removeElement($hosts);
+    }
+
+    /**
+     * Get hosts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getHosts()
+    {
+        return $this->hosts;
+    }
+    /**
+     * @var \DB\Entity\Lang
+     */
+    private $defaultLang;
+
+
+    /**
+     * Set defaultLang
+     *
+     * @param \DB\Entity\Lang $defaultLang
+     * @return Site
+     */
+    public function setDefaultLang(\DB\Entity\Lang $defaultLang = null)
+    {
+        $this->defaultLang = $defaultLang;
+
+        return $this;
+    }
+
+    /**
+     * Get defaultLang
+     *
+     * @return \DB\Entity\Lang 
+     */
+    public function getDefaultLang()
+    {
+        return $this->defaultLang;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $langs;
+
+
+    /**
+     * Add langs
+     *
+     * @param \DB\Entity\Lang $langs
+     * @return Site
+     */
+    public function addLang(\DB\Entity\Lang $langs)
+    {
+        $this->langs[] = $langs;
+
+        return $this;
+    }
+
+    /**
+     * Remove langs
+     *
+     * @param \DB\Entity\Lang $langs
+     */
+    public function removeLang(\DB\Entity\Lang $langs)
+    {
+        $this->langs->removeElement($langs);
+    }
+
+    /**
+     * Get langs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLangs()
+    {
+        return $this->langs;
+    }
+    
+    public function getLang($code){
+        foreach($this->langs as $lang){
+            if($lang->getId() === $code){
+                return $lang;
+            }
+        }
+        return false;
+    }
+    
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $layouts;
+
+
+    /**
+     * Add layouts
+     *
+     * @param \DB\Entity\Layout $layouts
+     * @return Site
+     */
+    public function addLayout(\DB\Entity\Layout $layouts)
+    {
+        $this->layouts[] = $layouts;
+
+        return $this;
+    }
+
+    /**
+     * Remove layouts
+     *
+     * @param \DB\Entity\Layout $layouts
+     */
+    public function removeLayout(\DB\Entity\Layout $layouts)
+    {
+        $this->layouts->removeElement($layouts);
+    }
+
+    /**
+     * Get layouts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLayouts()
+    {
+        return $this->layouts;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $installedLayouts;
+
+
+    /**
+     * Add installedLayouts
+     *
+     * @param \DB\Entity\Layout $installedLayouts
+     * @return Site
+     */
+    public function addInstalledLayout(\DB\Entity\Layout $installedLayouts)
+    {
+        $this->installedLayouts[] = $installedLayouts;
+
+        return $this;
+    }
+
+    /**
+     * Remove installedLayouts
+     *
+     * @param \DB\Entity\Layout $installedLayouts
+     */
+    public function removeInstalledLayout(\DB\Entity\Layout $installedLayouts)
+    {
+        $this->installedLayouts->removeElement($installedLayouts);
+    }
+
+    /**
+     * Get installedLayouts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getInstalledLayouts()
+    {
+        return $this->installedLayouts;
+    }
+    /**
+     * @var \DB\Entity\Layout
+     */
+    private $layout;
+
+
+    /**
+     * Set layout
+     *
+     * @param \DB\Entity\Layout $layout
+     * @return Site
+     */
+    public function setLayout(\DB\Entity\Layout $layout = null)
+    {
+        $this->layout = $layout;
+
+        return $this;
+    }
+
+    /**
+     * Get layout
+     *
+     * @return \DB\Entity\Layout 
+     */
+    public function getLayout()
+    {
+        return $this->layout;
+    }
+}

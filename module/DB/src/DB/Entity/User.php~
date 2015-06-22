@@ -1,0 +1,139 @@
+<?php
+
+namespace DB\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * User
+ */
+class User
+{
+    /**
+     * @var timestamp
+     */
+    private $createdAt;
+
+    /**
+     * @var integer
+     */
+    private $active;
+
+    /**
+     * @var string
+     */
+    private $username;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var \DB\Entity\Site
+     */
+    private $site;
+
+
+    /**
+     * Set createdAt
+     *
+     * @param \timestamp $createdAt
+     * @return User
+     */
+    public function setCreatedAt(\timestamp $createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \timestamp 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set active
+     *
+     * @param integer $active
+     * @return User
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return integer 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return User
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set site
+     *
+     * @param \DB\Entity\Site $site
+     * @return User
+     */
+    public function setSite(\DB\Entity\Site $site = null)
+    {
+        $this->site = $site;
+
+        return $this;
+    }
+
+    /**
+     * Get site
+     *
+     * @return \DB\Entity\Site 
+     */
+    public function getSite()
+    {
+        return $this->site;
+    }
+}

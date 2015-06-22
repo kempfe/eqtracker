@@ -1,0 +1,195 @@
+<?php
+
+namespace DB\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ContentTemplate
+ */
+class ContentTemplate
+{
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdAt;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return ContentTemplate
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return ContentTemplate
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @var string
+     */
+    private $shortcut;
+
+    /**
+     * @var string
+     */
+    private $version;
+
+    /**
+     * @var string
+     */
+    private $state;
+
+    /**
+     * @var \DB\Entity\Developer
+     */
+    private $developer;
+
+
+    /**
+     * Set shortcut
+     *
+     * @param string $shortcut
+     * @return ContentTemplate
+     */
+    public function setShortcut($shortcut)
+    {
+        $this->shortcut = $shortcut;
+    
+        return $this;
+    }
+
+    /**
+     * Get shortcut
+     *
+     * @return string 
+     */
+    public function getShortcut()
+    {
+        return $this->shortcut;
+    }
+
+    /**
+     * Set version
+     *
+     * @param string $version
+     * @return ContentTemplate
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+    
+        return $this;
+    }
+
+    /**
+     * Get version
+     *
+     * @return string 
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * Set state
+     *
+     * @param string $state
+     * @return ContentTemplate
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+    
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return string 
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * Set developer
+     *
+     * @param \DB\Entity\Developer $developer
+     * @return ContentTemplate
+     */
+    public function setDeveloper(\DB\Entity\Developer $developer = null)
+    {
+        $this->developer = $developer;
+    
+        return $this;
+    }
+
+    /**
+     * Get developer
+     *
+     * @return \DB\Entity\Developer 
+     */
+    public function getDeveloper()
+    {
+        return $this->developer;
+    }
+}

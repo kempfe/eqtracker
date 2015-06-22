@@ -1,0 +1,55 @@
+<?php
+
+namespace DB\Entity;
+
+/**
+ * Kill
+ */
+class Kill
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var \DB\Entity\NPC
+     */
+    private $npc;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set npc
+     *
+     * @param \DB\Entity\NPC $npc
+     *
+     * @return Kill
+     */
+    public function setNpc(\DB\Entity\NPC $npc = null)
+    {
+        $this->npc = $npc;
+
+        return $this;
+    }
+
+    /**
+     * Get npc
+     *
+     * @return \DB\Entity\NPC
+     */
+    public function getNpc()
+    {
+        return $this->npc;
+    }
+}
+

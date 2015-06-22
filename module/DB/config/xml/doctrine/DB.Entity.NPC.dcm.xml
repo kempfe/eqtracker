@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping 
+                        http://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="DB\Entity\NPC" table="npc">
+         <id name="id" type="integer" column="id">
+            <generator strategy="AUTO" />
+         </id>
+         <field name="name" type="string" />
+         <field name="spawnType" type="string" />
+         <field name="spawnInterval" type="integer" />
+         <field name="spawnWindow" type="integer" />
+         <one-to-many target-entity="DB\Entity\Kill" mapped-by="npc" field="kills">
+             <order-by>
+                 <order-by-field name="spawnTime" direction="DESC" />
+             </order-by>
+         </one-to-many>
+         <many-to-one target-entity="DB\Entity\Zone" field="zone">
+             
+         </many-to-one>
+    </entity>
+</doctrine-mapping>

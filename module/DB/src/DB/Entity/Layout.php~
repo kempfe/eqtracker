@@ -1,0 +1,223 @@
+<?php
+
+namespace DB\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Layout
+ */
+class Layout
+{
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var integer
+     */
+    private $createdAt;
+
+    /**
+     * @var string
+     */
+    private $dCode;
+
+    /**
+     * @var string
+     */
+    private $layoutShortcut;
+
+    /**
+     * @var string
+     */
+    private $version;
+
+    /**
+     * @var string
+     */
+    private $state;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Layout
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param integer $createdAt
+     * @return Layout
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return integer 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set dCode
+     *
+     * @param string $dCode
+     * @return Layout
+     */
+    public function setDCode($dCode)
+    {
+        $this->dCode = $dCode;
+
+        return $this;
+    }
+
+    /**
+     * Get dCode
+     *
+     * @return string 
+     */
+    public function getDCode()
+    {
+        return $this->dCode;
+    }
+
+    /**
+     * Set layoutShortcut
+     *
+     * @param string $layoutShortcut
+     * @return Layout
+     */
+    public function setLayoutShortcut($layoutShortcut)
+    {
+        $this->layoutShortcut = $layoutShortcut;
+
+        return $this;
+    }
+
+    /**
+     * Get layoutShortcut
+     *
+     * @return string 
+     */
+    public function getLayoutShortcut()
+    {
+        return $this->layoutShortcut;
+    }
+
+    /**
+     * Set version
+     *
+     * @param string $version
+     * @return Layout
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+
+        return $this;
+    }
+
+    /**
+     * Get version
+     *
+     * @return string 
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * Set state
+     *
+     * @param string $state
+     * @return Layout
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return string 
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @var \DB\Entity\Developer
+     */
+    private $developer;
+
+
+    /**
+     * Set developer
+     *
+     * @param \DB\Entity\Developer $developer
+     * @return Layout
+     */
+    public function setDeveloper(\DB\Entity\Developer $developer = null)
+    {
+        $this->developer = $developer;
+
+        return $this;
+    }
+
+    /**
+     * Get developer
+     *
+     * @return \DB\Entity\Developer 
+     */
+    public function getDeveloper()
+    {
+        return $this->developer;
+    }
+}

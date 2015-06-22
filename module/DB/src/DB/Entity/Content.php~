@@ -1,0 +1,251 @@
+<?php
+
+namespace DB\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Content
+ */
+class Content
+{
+    /**
+     * @var string
+     */
+    private $column;
+
+    /**
+     * @var string
+     */
+    private $content;
+
+    /**
+     * @var timestamp
+     */
+    private $createdAt;
+
+    /**
+     * @var integer
+     */
+    private $sort;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var \DB\Entity\Site
+     */
+    private $site;
+
+    /**
+     * @var \DB\Entity\Lang
+     */
+    private $lang;
+
+
+    /**
+     * Set column
+     *
+     * @param string $column
+     * @return Content
+     */
+    public function setColumn($column)
+    {
+        $this->column = $column;
+
+        return $this;
+    }
+
+    /**
+     * Get column
+     *
+     * @return string 
+     */
+    public function getColumn()
+    {
+        return $this->column;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     * @return Content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string 
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \timestamp $createdAt
+     * @return Content
+     */
+    public function setCreatedAt(\timestamp $createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \timestamp 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set sort
+     *
+     * @param integer $sort
+     * @return Content
+     */
+    public function setSort($sort)
+    {
+        $this->sort = $sort;
+
+        return $this;
+    }
+
+    /**
+     * Get sort
+     *
+     * @return integer 
+     */
+    public function getSort()
+    {
+        return $this->sort;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set site
+     *
+     * @param \DB\Entity\Site $site
+     * @return Content
+     */
+    public function setSite(\DB\Entity\Site $site = null)
+    {
+        $this->site = $site;
+
+        return $this;
+    }
+
+    /**
+     * Get site
+     *
+     * @return \DB\Entity\Site 
+     */
+    public function getSite()
+    {
+        return $this->site;
+    }
+
+    /**
+     * Set lang
+     *
+     * @param \DB\Entity\Lang $lang
+     * @return Content
+     */
+    public function setLang(\DB\Entity\Lang $lang = null)
+    {
+        $this->lang = $lang;
+
+        return $this;
+    }
+
+    /**
+     * Get lang
+     *
+     * @return \DB\Entity\Lang 
+     */
+    public function getLang()
+    {
+        return $this->lang;
+    }
+    /**
+     * @var \DB\Entity\Page
+     */
+    private $page;
+
+
+    /**
+     * Set page
+     *
+     * @param \DB\Entity\Page $page
+     * @return Content
+     */
+    public function setPage(\DB\Entity\Page $page = null)
+    {
+        $this->page = $page;
+
+        return $this;
+    }
+
+    /**
+     * Get page
+     *
+     * @return \DB\Entity\Page 
+     */
+    public function getPage()
+    {
+        return $this->page;
+    }
+    /**
+     * @var \DB\Entity\Layout
+     */
+    private $layout;
+
+
+    /**
+     * Set layout
+     *
+     * @param \DB\Entity\Layout $layout
+     * @return Content
+     */
+    public function setLayout(\DB\Entity\Layout $layout = null)
+    {
+        $this->layout = $layout;
+    
+        return $this;
+    }
+
+    /**
+     * Get layout
+     *
+     * @return \DB\Entity\Layout 
+     */
+    public function getLayout()
+    {
+        return $this->layout;
+    }
+}

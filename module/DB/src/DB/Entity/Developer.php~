@@ -1,0 +1,195 @@
+<?php
+
+namespace DB\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Developer
+ */
+class Developer
+{
+    /**
+     * @var string
+     */
+    private $dCode;
+
+    /**
+     * @var string
+     */
+    private $nickname;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdAt;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $layouts;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $contents;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->layouts = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->contents = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set dCode
+     *
+     * @param string $dCode
+     * @return Developer
+     */
+    public function setDCode($dCode)
+    {
+        $this->dCode = $dCode;
+
+        return $this;
+    }
+
+    /**
+     * Get dCode
+     *
+     * @return string 
+     */
+    public function getDCode()
+    {
+        return $this->dCode;
+    }
+
+    /**
+     * Set nickname
+     *
+     * @param string $nickname
+     * @return Developer
+     */
+    public function setNickname($nickname)
+    {
+        $this->nickname = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * Get nickname
+     *
+     * @return string 
+     */
+    public function getNickname()
+    {
+        return $this->nickname;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Developer
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Add layouts
+     *
+     * @param \DB\Entity\Layout $layouts
+     * @return Developer
+     */
+    public function addLayout(\DB\Entity\Layout $layouts)
+    {
+        $this->layouts[] = $layouts;
+
+        return $this;
+    }
+
+    /**
+     * Remove layouts
+     *
+     * @param \DB\Entity\Layout $layouts
+     */
+    public function removeLayout(\DB\Entity\Layout $layouts)
+    {
+        $this->layouts->removeElement($layouts);
+    }
+
+    /**
+     * Get layouts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLayouts()
+    {
+        return $this->layouts;
+    }
+
+    /**
+     * Add contents
+     *
+     * @param \DB\Entity\ContentTemplate $contents
+     * @return Developer
+     */
+    public function addContent(\DB\Entity\ContentTemplate $contents)
+    {
+        $this->contents[] = $contents;
+
+        return $this;
+    }
+
+    /**
+     * Remove contents
+     *
+     * @param \DB\Entity\ContentTemplate $contents
+     */
+    public function removeContent(\DB\Entity\ContentTemplate $contents)
+    {
+        $this->contents->removeElement($contents);
+    }
+
+    /**
+     * Get contents
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getContents()
+    {
+        return $this->contents;
+    }
+}
