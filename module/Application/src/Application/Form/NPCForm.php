@@ -16,7 +16,7 @@ class NPCForm extends \Zend\Form\Form {
             "attributes" => [
             ],
             "options" => [
-                "label" => "Zone Name"
+                "label" => "NPC Name"
             ],
         ]);
         
