@@ -78,7 +78,6 @@ class NPCForm extends \Zend\Form\Form {
                      720 => "12 Days",
                      1440 => "1 Day",
                 ],
-                "empty_option" => "== NO WINDOW ==",
                 "label" => "Spawn Window"
             ],
         ]);
