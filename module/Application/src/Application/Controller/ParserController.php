@@ -33,6 +33,8 @@ class ParserController extends AbstractActionController
                        $killMapper = $this->getServiceLocator()->get("DB\Mapper\Kill");
                        $npc = $npcMapper->findByName($npcName);
                        if($npc){
+                           
+                           if($npc->getKill() && $npc->getKill()->getCrDate() > $date) continue;
                            $killMapper->cleanNPC($npc);
                            
                            $kill = new \DB\Entity\Kill;

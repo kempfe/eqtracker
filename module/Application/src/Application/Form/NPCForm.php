@@ -34,11 +34,18 @@ class NPCForm extends \Zend\Form\Form {
         $this->add([
             "name" => "spawnInterval",
             "required" => true,
-            "type" => "text",
+            "type" => "select",
             "attributes" => [
             ],
             "options" => [
-                "label" => "Spawn Interval (in minutes)"
+                "label" => "Spawn Interval",
+                "value_options" => [
+                     720 => "12 Hours",
+                     1440 => "24 Hours",
+                     2880 => "2 Days",
+                     4320 => "3 Days",
+                     10080 => "7 Days",
+                ]
             ],
         ]);
         
@@ -59,12 +66,20 @@ class NPCForm extends \Zend\Form\Form {
         
         $this->add([
             "name" => "spawnWindow",
-            "required" => true,
-            "type" => "text",
+            "required" => false,
+            "type" => "select",
             "attributes" => [
             ],
             "options" => [
-                "label" => "Spawn Window (in minutes)"
+                "value_options" => [
+                    0 => "== No Window",
+                     360 => "6 Hours",
+                     480 => "8 Hours",
+                     720 => "12 Days",
+                     1440 => "1 Day",
+                ],
+                "empty_option" => "== NO WINDOW ==",
+                "label" => "Spawn Window"
             ],
         ]);
         
