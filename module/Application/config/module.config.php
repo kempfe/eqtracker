@@ -15,119 +15,142 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
+                        'controller' => 'Application\Controller\Facebook',
                         'action'     => 'index',
                     ),
                 ),
             ),
-            'parser' => [
+            'redirect' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/redirect',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Facebook',
+                        'action'     => 'redirect',
+                    ),
+                ),
+            ),
+            'eqtracker' => [
                 'type' => 'literal',
                 'options' => [
-                    'route' => '/parser',
-                    'defaults' => [
-                        'controller' => 'Application\Controller\Parser',
-                        'action' => 'index'
-                    ]
-                ]
-            ],
-            'addkill' => [
-                'type' => 'literal',
-                'options' => [
-                    'route' => '/addkill',
+                    'route' => '/eqtracker',
                     'defaults' => [
                         'controller' => 'Application\Controller\Index',
-                        'action' => 'addKill'
-                    ]
-                ]
-            ],
-            'removekill' => [
-                'type' => 'segment',
-                'options' => [
-                    'route' => '/removekill/:npc',
-                    'defaults' => [
-                        'controller' => 'Application\Controller\Index',
-                        'action' => 'removeKill'
-                    ]
-                ]
-            ],
-            'zone' => [
-                'type' => 'literal',
-                'options' => [
-                    'route' => '/zone',
-                    'defaults' => [
-                        'controller' => 'Application\Controller\Zone',
-                        'action' => 'list'
+                        'action'     => 'index',
                     ]
                 ],
                 'may_terminate' => true,
                 'child_routes' => [
-                    'add' => [
+                    'parser' => [
                         'type' => 'literal',
                         'options' => [
-                            'route' => '/add',
+                            'route' => '/parser',
                             'defaults' => [
-                                'controller' => 'Application\Controller\Zone',
-                                'action' => 'add'
+                                'controller' => 'Application\Controller\Parser',
+                                'action' => 'index'
                             ]
                         ]
                     ],
-                    'edit' => [
-                        'type' => 'segment',
-                        'options' => [
-                            'route' => '/edit/:zoneid',
-                            'defaults' => [
-                                'controller' => 'Application\Controller\Zone',
-                                'action' => 'edit'
-                            ]
-                        ]
-                    ],
-                    'delete' => [
-                        'type' => 'segment',
-                        'options' => [
-                            'route' => '/delete/:zoneid',
-                            'defaults' => [
-                                'controller' => 'Application\Controller\Zone',
-                                'action' => 'delete'
-                            ]
-                        ]
-                    ]
-                ]
-            ],
-            'npc' => [
-                'type' => 'literal',
-                'options' => [
-                    'route' => '/npc',
-                    'defaults' => [
-                        'controller' => 'Application\Controller\NPC',
-                        'action' => 'list'
-                    ]
-                ],
-                'may_terminate' => true,
-                'child_routes' => [
-                    'add' => [
+                    'addkill' => [
                         'type' => 'literal',
                         'options' => [
-                            'route' => '/add',
+                            'route' => '/addkill',
                             'defaults' => [
-                                'action' => 'add'
+                                'controller' => 'Application\Controller\Index',
+                                'action' => 'addKill'
                             ]
                         ]
                     ],
-                    'edit' => [
+                    'removekill' => [
                         'type' => 'segment',
                         'options' => [
-                            'route' => '/edit/:npc',
+                            'route' => '/removekill/:npc',
                             'defaults' => [
-                                'action' => 'edit'
+                                'controller' => 'Application\Controller\Index',
+                                'action' => 'removeKill'
                             ]
                         ]
                     ],
-                    'delete' => [
-                        'type' => 'segment',
+                    'zone' => [
+                        'type' => 'literal',
                         'options' => [
-                            'route' => '/delete/:npc',
+                            'route' => '/zone',
                             'defaults' => [
-                                'action' => 'delete'
+                                'controller' => 'Application\Controller\Zone',
+                                'action' => 'list'
+                            ]
+                        ],
+                        'may_terminate' => true,
+                        'child_routes' => [
+                            'add' => [
+                                'type' => 'literal',
+                                'options' => [
+                                    'route' => '/add',
+                                    'defaults' => [
+                                        'controller' => 'Application\Controller\Zone',
+                                        'action' => 'add'
+                                    ]
+                                ]
+                            ],
+                            'edit' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => '/edit/:zoneid',
+                                    'defaults' => [
+                                        'controller' => 'Application\Controller\Zone',
+                                        'action' => 'edit'
+                                    ]
+                                ]
+                            ],
+                            'delete' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => '/delete/:zoneid',
+                                    'defaults' => [
+                                        'controller' => 'Application\Controller\Zone',
+                                        'action' => 'delete'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'npc' => [
+                        'type' => 'literal',
+                        'options' => [
+                            'route' => '/npc',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\NPC',
+                                'action' => 'list'
+                            ]
+                        ],
+                        'may_terminate' => true,
+                        'child_routes' => [
+                            'add' => [
+                                'type' => 'literal',
+                                'options' => [
+                                    'route' => '/add',
+                                    'defaults' => [
+                                        'action' => 'add'
+                                    ]
+                                ]
+                            ],
+                            'edit' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => '/edit/:npc',
+                                    'defaults' => [
+                                        'action' => 'edit'
+                                    ]
+                                ]
+                            ],
+                            'delete' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => '/delete/:npc',
+                                    'defaults' => [
+                                        'action' => 'delete'
+                                    ]
+                                ]
                             ]
                         ]
                     ]
@@ -143,7 +166,8 @@ return array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
             'Application\Controller\Zone' => 'Application\Controller\ZoneController',
             'Application\Controller\NPC' => 'Application\Controller\NPCController',
-            'Application\Controller\Parser' => 'Application\Controller\ParserController'
+            'Application\Controller\Parser' => 'Application\Controller\ParserController',
+            'Application\Controller\Facebook' => 'Application\Controller\FacebookController'
         ),
     ),
     'view_manager' => array(

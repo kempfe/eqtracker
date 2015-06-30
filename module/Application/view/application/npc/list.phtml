@@ -10,8 +10,8 @@
                 <tr>
                     <td><?=$item->getName()?></td>
                     <td>
-                        <a class="btn btn-default btn-xs" href="<?=$this->url('npc/edit',['npc' => $item->getId()])?>"><span class="fa fa-lg fa-edit"></span></a>
-                        <a class="btn btn-default btn-xs" href="<?=$this->url('npc/delete',['npc' => $item->getId()])?>"><span class="fa fa-lg fa-times"></span></a>
+                        <a class="btn btn-default btn-xs" href="<?=$this->url('eqtracker/npc/edit',['npc' => $item->getId()])?>"><span class="fa fa-lg fa-edit"></span></a>
+                        <a class="btn btn-default btn-xs" href="<?=$this->url('eqtracker/npc/delete',['npc' => $item->getId()])?>"><span class="fa fa-lg fa-times"></span></a>
                     </td>
                 </tr>
                 <?endforeach?>

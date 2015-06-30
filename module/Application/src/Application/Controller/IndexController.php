@@ -55,7 +55,7 @@ class IndexController extends AbstractActionController
         
         $mapper->insert($kill);
         
-        return $this->redirect()->toRoute("home");
+        return $this->redirect()->toRoute("eqtracker");
     }
     
     public function removeKillAction(){
