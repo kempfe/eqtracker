@@ -19,7 +19,7 @@ class FacebookController extends AbstractActionController
             $helperBroker = $this->getServiceLocator()->get('ViewHelperManager');
             $metaHelper = $helperBroker->get('headMeta');
             $metaHelper->setProperty("og:image","http://www.carrybase.com/img/sea.jpg");
-            $metaHelper->setProperty("og:title","Traumschnäppchen! - Ägypten All Inclusive - ab 317€");
+            $metaHelper->setProperty("og:title","Traumurlaub - TOP 4* Hotel AI - ab 317 €");
             $metaHelper->setProperty("og:type","article");
             $metaHelper->setProperty("og:description","Superschnäppchen für die Hauptsaison! - TOP 4* Hotel in Ägypten / Hurghada direkt am Strand, Excellente!! Hotel Bewertung mit 6* auf Holidaytest, All Inclusive, inkl. Flug + Transfer, diverse österreichische Abflughäfen - Überzeugt euch selbst und teilt dieses Schnäppchen!");
         }
