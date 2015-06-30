@@ -20,6 +20,7 @@ class FacebookController extends AbstractActionController
             $metaHelper = $helperBroker->get('headMeta');
             $metaHelper->setProperty("og:image","http://www.carrybase.com/img/sea.jpg");
             $metaHelper->setProperty("og:title","Testtitel");
+            $metaHelper->setProperty("og:type","article");
             $metaHelper->setProperty("og:description","Testbeschreibung");
         }
         else{
