@@ -65,6 +65,6 @@ class IndexController extends AbstractActionController
         
         $npcEntity->setKill(NULL);
         $zoneMapper->update($npcEntity);
-        return $this->redirect()->toRoute("home"); 
+        return $this->redirect()->toRoute("eqtracker"); 
     }
 }
