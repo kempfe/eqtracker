@@ -11,6 +11,7 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\View\Model\JsonModel;
 
 class ParserController extends AbstractActionController
 {
@@ -63,4 +64,35 @@ class ParserController extends AbstractActionController
         }
     }
     
+    public function addkillAction(){
+        $npc = $this->params()->fromPost('npc');
+        $killtime = $this->params()->fromPost("killtime");
+        
+        if( $npc && $killtime){
+            $date = date_create_from_format("D M d H:i:s Y", $killtime);
+            $npcName = rtrim($npc,"'\r");
+            $npcMapper = $this->getServiceLocator()->get("DB\Mapper\NPC");
+            $killMapper = $this->getServiceLocator()->get("DB\Mapper\Kill");
+            $npc = $npcMapper->findByName($npcName);
+            if($npc){
+                if($npc->getKill() && $npc->getKill()->getCrDate() >= $date) return new JsonModel(['statusMessage' => sprintf("Old Kill from NPC '%s'",$npcName),'statusCode' => 1]);
+                $killMapper->cleanNPC($npc);
+
+                $kill = new \DB\Entity\Kill;
+
+                $kill->setCrDate($date);
+
+                $spawnTime = clone $date;
+                $spawnTime->add(new \DateInterval("PT".$npc->getSpawnInterval()."M"));
+                $kill->setSpawnTime($spawnTime);
+                $kill->setNpc($npc);
+                $kill->setSpawnInterval($npc->getSpawnWindow());
+                $npc->setKill($kill);
+               $npcMapper->update($kill);
+               return new JsonModel(['statusMessage' => sprintf("Kill of '%s' successful added",$npcName),'statusCode' => 0]);
+            }
+            return new JsonModel(['statusMessage' => sprintf("NPC with name '%s' not found",$npcName),'statusCode' => 2]);
+        }
+        return new JsonModel(['statusMessage' => 'Error','statusCode' => 3]);
+    }
 }

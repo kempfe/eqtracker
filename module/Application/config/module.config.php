@@ -28,6 +28,19 @@ return array(
                         'controller' => 'Application\Controller\Parser',
                         'action' => 'index'
                     ]
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'addkill' => [
+                        'type' => 'literal',
+                        'options' => [
+                            'route' => '/addkill',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Parser',
+                                'action' => 'addkill'
+                            ]
+                        ]
+                    ],
                 ]
             ],
             'addkill' => [
@@ -160,6 +173,9 @@ return array(
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
+        ),
+        'strategies' => array(
+            'ViewJsonStrategy',
         ),
     ),
     // Placeholder for console routes
