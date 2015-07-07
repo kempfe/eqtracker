@@ -40,7 +40,7 @@ class ZoneController extends AbstractActionController
         $zoneMapper = $this->getServiceLocator()->get("DB\Mapper\Zone");
         $zoneMapper->insert($form->getData());
         
-        return $this->redirect()->toRoute("eqtracker/zone");
+        return $this->redirect()->toRoute("zone");
     }
     
     public function listAction(){
@@ -55,10 +55,10 @@ class ZoneController extends AbstractActionController
         $zoneMapper = $this->getServiceLocator()->get("DB\Mapper\Zone");
         $zoneEntity = $zoneMapper->getEntityRepository()->find($zoneid);
         if(!$zoneEntity){
-            return $this->redirect()->toRoute("eqtracker/zone");
+            return $this->redirect()->toRoute("zone");
         }
         $zoneMapper->remove($zoneEntity);
-        return $this->redirect()->toRoute("eqtracker/zone");
+        return $this->redirect()->toRoute("zone");
     }
     
     public function editAction(){
@@ -88,6 +88,6 @@ class ZoneController extends AbstractActionController
         
         $zoneMapper->update($form->getData());
         
-        return $this->redirect()->toRoute("eqtracker/zone");
+        return $this->redirect()->toRoute("zone");
     }
 }

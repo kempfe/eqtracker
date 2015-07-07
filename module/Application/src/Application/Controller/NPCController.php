@@ -40,7 +40,7 @@ class NPCController extends AbstractActionController
         $zoneMapper = $this->getServiceLocator()->get("DB\Mapper\NPC");
         $zoneMapper->insert($form->getData());
         
-        return $this->redirect()->toRoute("eqtracker/npc");
+        return $this->redirect()->toRoute("npc");
     }
     
     public function listAction(){
@@ -55,10 +55,10 @@ class NPCController extends AbstractActionController
         $zoneMapper = $this->getServiceLocator()->get("DB\Mapper\NPC");
         $npcEntity = $zoneMapper->getEntityRepository()->find($npc);
         if(!$npcEntity){
-            return $this->redirect()->toRoute("eqtracker/npc");
+            return $this->redirect()->toRoute("npc");
         }
         $zoneMapper->remove($npcEntity);
-        return $this->redirect()->toRoute("eqtracker/npc");
+        return $this->redirect()->toRoute("npc");
     }
     
     public function editAction(){
@@ -88,6 +88,6 @@ class NPCController extends AbstractActionController
         
         $zoneMapper->update($form->getData());
         
-        return $this->redirect()->toRoute("eqtracker/npc");
+        return $this->redirect()->toRoute("npc");
     }
 }

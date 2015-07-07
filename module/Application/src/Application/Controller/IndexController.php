@@ -55,7 +55,7 @@ class IndexController extends AbstractActionController
         
         $mapper->insert($kill);
         
-        return $this->redirect()->toRoute("eqtracker");
+        return $this->redirect()->toRoute("home");
     }
     
     public function removeKillAction(){
@@ -65,6 +65,6 @@ class IndexController extends AbstractActionController
         
         $npcEntity->setKill(NULL);
         $zoneMapper->update($npcEntity);
-        return $this->redirect()->toRoute("eqtracker"); 
+        return $this->redirect()->toRoute("home"); 
     }
 }
