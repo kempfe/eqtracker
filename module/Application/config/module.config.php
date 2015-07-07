@@ -19,7 +19,17 @@ return array(
                         'action'     => 'index',
                     ]
                 ],
-                'may_terminate' => true,
+            ],
+            'eqtracker' =>[
+                'type' => 'literal',
+                'options' => [
+                    'route' => '/',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\Index',
+                        'action'     => 'index',
+                    ]
+                ],
+            'may_terminate' => true,
                 'child_routes' => [
                     'parser' => [
                         'type' => 'literal',

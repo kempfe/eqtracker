@@ -10,8 +10,8 @@
                 <tr>
                     <td><?=$item->getName()?></td>
                     <td>
-                        <a class="btn btn-default btn-xs" href="<?=$this->url('home/zone/edit',['zoneid' => $item->getId()])?>"><span class="fa fa-lg fa-edit"></span></a>
-                        <a class="btn btn-default btn-xs" href="<?=$this->url('home/zone/delete',['zoneid' => $item->getId()])?>"><span class="fa fa-lg fa-times"></span></a>
+                        <a class="btn btn-default btn-xs" href="<?=$this->url('eqtracker/zone/edit',['zoneid' => $item->getId()])?>"><span class="fa fa-lg fa-edit"></span></a>
+                        <a class="btn btn-default btn-xs" href="<?=$this->url('eqtracker/zone/delete',['zoneid' => $item->getId()])?>"><span class="fa fa-lg fa-times"></span></a>
                     </td>
                 </tr>
                 <?endforeach?>
