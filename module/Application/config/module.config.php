@@ -10,30 +10,10 @@
 return array(
     'router' => array(
         'routes' => array(
-            'home' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Facebook',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
-            'redirect' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/redirect',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Facebook',
-                        'action'     => 'redirect',
-                    ),
-                ),
-            ),
-            'eqtracker' => [
+            'home' => [
                 'type' => 'literal',
                 'options' => [
-                    'route' => '/eqtracker',
+                    'route' => '/',
                     'defaults' => [
                         'controller' => 'Application\Controller\Index',
                         'action'     => 'index',
