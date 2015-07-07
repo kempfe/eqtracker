@@ -213,4 +213,43 @@ class NPC
     {
         return $this->kill;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $killLog;
+
+
+    /**
+     * Add killLog
+     *
+     * @param \DB\Entity\KillLog $killLog
+     *
+     * @return NPC
+     */
+    public function addKillLog(\DB\Entity\KillLog $killLog)
+    {
+        $this->killLog[] = $killLog;
+
+        return $this;
+    }
+
+    /**
+     * Remove killLog
+     *
+     * @param \DB\Entity\KillLog $killLog
+     */
+    public function removeKillLog(\DB\Entity\KillLog $killLog)
+    {
+        $this->killLog->removeElement($killLog);
+    }
+
+    /**
+     * Get killLog
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getKillLog()
+    {
+        return $this->killLog;
+    }
 }

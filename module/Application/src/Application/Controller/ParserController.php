@@ -89,6 +89,13 @@ class ParserController extends AbstractActionController
                 $kill->setSpawnInterval($npc->getSpawnWindow());
                 $npc->setKill($kill);
                $npcMapper->update($kill);
+               
+               // Add to Kill Log
+               $killLog = new \DB\Entity\KillLog();
+               $killLog->setCrDate($date);
+               $killLog->setNpc($npc);
+               $npcMapper->insert($killLog);
+               
                return new JsonModel(['statusMessage' => sprintf("Kill of '%s' successful added",$npcName),'statusCode' => 0]);
             }
             return new JsonModel(['statusMessage' => sprintf("NPC with name '%s' not found",$npcName),'statusCode' => 2]);

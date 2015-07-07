@@ -1,0 +1,56 @@
+    <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <form class="navbar-form navbar-left filterform" role="search" method="GET">
+                    <div class="form-group">
+                        <select class="form-control" name="npcfilter">
+                            <? foreach($npcs as $npc):?>
+                            <option value="<?=$npc->getId()?>"><?=sprintf("%s - %s",$npc->getName(),$npc->getZone()->getName())?></option>
+                            <?endforeach?>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    <a href="<?=$this->url(null,[],true)?>" class="btn btn-default">Reset</a>
+                </form>
+            </div>
+        </nav>    
+    <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>NPC Name</th>
+                    <th>Kill Time</th>
+                    <th>Time Difference</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?
+                    $zw = $result;
+                    $zw = array_reverse($zw);
+                    foreach($zw as $item){
+                        if(isset($npcKillCache[$item->getNPC()->getId()])){
+                            $diffLog[$item->getId()] = date_diff($npcKillCache[$item->getNPC()->getId()],$item->getCrDate());
+                        }
+                        $npcKillCache[$item->getNPC()->getId()] = $item->getCrDate();
+                    }
+                
+                foreach($result as $item):?>
+                <tr>
+                    <td><?=$item->getNPC()->getName()?></td>
+                    <td><?=$item->getCrDate()->format('Y-m-d H:i:s')?>
+                    </td>
+                    <td>
+                        <?
+                            if(isset($diffLog[$item->getId()])):
+                        ?>
+                            <?=$diffLog[$item->getId()]->format("%h Hours %i Minutes");?>
+                        <?else:?>
+                        <?endif?>
+                    </td>
+                </tr>
+                <?$npcKillCache[$item->getNPC()->getId()] = $item->getCrDate();?>
+                <?endforeach?>
+            </tbody>
+        </table>
+        <?=$this->paginationControl($paginator, 
+                'Sliding', 
+                'partials/null-paginator.phtml',
+                array('route' => null,'parameter' => $parameter));?>

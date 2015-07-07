@@ -22,5 +22,8 @@
          <many-to-one target-entity="DB\Entity\Zone" field="zone">
              
          </many-to-one>
+         <one-to-many target-entity="DB\Entity\KillLog" field="killLog" mapped-by="npc">
+             
+         </one-to-many>
     </entity>
 </doctrine-mapping>

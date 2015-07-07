@@ -20,6 +20,16 @@ return array(
                     ]
                 ],
             ],
+            'killlog' => [
+                'type' => 'literal',
+                'options' => [
+                    'route' => '/killlog',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\KillLog',
+                        'action' => 'index'
+                    ]
+                ],                
+            ],
             'parser' => [
                 'type' => 'literal',
                 'options' => [
@@ -156,7 +166,8 @@ return array(
             'Application\Controller\Zone' => 'Application\Controller\ZoneController',
             'Application\Controller\NPC' => 'Application\Controller\NPCController',
             'Application\Controller\Parser' => 'Application\Controller\ParserController',
-            'Application\Controller\Facebook' => 'Application\Controller\FacebookController'
+            'Application\Controller\Facebook' => 'Application\Controller\FacebookController',
+            'Application\Controller\KillLog' => 'Application\Controller\KillLogController'
         ),
     ),
     'view_manager' => array(

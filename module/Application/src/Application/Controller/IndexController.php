@@ -55,6 +55,12 @@ class IndexController extends AbstractActionController
         
         $mapper->insert($kill);
         
+        // Add to Kill Log
+        $killLog = new \DB\Entity\KillLog();
+        $killLog->setCrDate($kill->getCrDate());
+        $killLog->setNpc($npc);
+        $mapper->insert($killLog);
+        
         return $this->redirect()->toRoute("home");
     }
     
